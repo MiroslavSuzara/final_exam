@@ -11,7 +11,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem "rspec-rails"
 
 group :development do
   gem "interactive_editor"
@@ -21,6 +20,7 @@ group :development do
 end
 
 group :development, :test do
+  gem "rspec-rails"
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
