@@ -5,3 +5,11 @@
 <p><strong>Ends On: </strong><%= @auction.ends_on %> </p>
 <p>Reserve Price: <%= @auction.reserve_price %></p>
 <hr>
+
+<%= form_for [@auction, @bid] do |f| %>
+    <div class="form-group">
+    <%= f.label :bid %>
+    <%= f.number_field :bid, class: "form-control" %>
+  </div>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

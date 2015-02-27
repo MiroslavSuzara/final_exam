@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "auctions#index"
 
   resources :auctions do
+    resources :bids
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
