@@ -11,7 +11,7 @@ class AuctionsController < ApplicationController
   def create
     @auction = Auction.new params.require(:auction).permit(:title, :details, :ends_on, :reserve_price)
     if @auction.save
-      redirect_to @auction
+      redirect_to @auction, notice: "Auction created."
     else
       render :new
     end
@@ -20,7 +20,7 @@ class AuctionsController < ApplicationController
   def show
     @auction = Auction.find params[:id]
     @bid = Bid.new
-    @bids = @auction.bids.all
+    @bids = @auction.bids.all.order("created_at DESC")
   end
 
   def edit

@@ -1,9 +1,18 @@
 <h1>Auction</h1>
 
-<p><%= @auction.title %></p>
-<p><%= @auction.details %></p>
-<p><strong>Ends On: </strong><%= @auction.ends_on %> </p>
-<p>Reserve Price: <%= @auction.reserve_price %></p>
+<div class="row">
+  <div class="col-md-8">
+    <p><strong>Title: </strong><%= @auction.title %></p>
+    <p><strong>Details: </strong><%= @auction.details %></p>
+    <p><strong>Ends On: </strong><%= formatted_date(@auction.ends_on) %> </p>
+  </div>
+
+  <div class="col-md-4">
+    <p><strong>Current Price: </strong>Current Price to go here</p>
+    <p>Has reserve price been met?</p>
+  </div>
+</div>
+
 <hr>
 
 <%= form_for [@auction, @bid] do |f| %>
@@ -20,6 +29,6 @@
 
 <% @bids.each do |bid| %>
   <div class="well">
-    <p>$<%= bid.bid %> at <%= bid.created_at %></p>
+    <p>$<%= bid.bid %> on <%= formatted_date(bid.created_at) %></p>
   </div>
 <% end %>

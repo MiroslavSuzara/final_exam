@@ -13,7 +13,7 @@
     <tr>
       <td><%= link_to t.title, auction_path(t) %></td>
       <td><%= t.details %></td>
-      <td><%= t.ends_on %></td>
+      <td><%= formatted_date(t.ends_on) %></td>
       <td><%= t.reserve_price %></td>
       <td class="actions">
           <div class="btn-group">
