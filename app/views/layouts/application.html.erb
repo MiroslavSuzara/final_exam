@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FinalExam</title>
+  <title>Final Exam</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+<div class="container">
+  <%= link_to "All Auctions", auctions_path %>
+  |
+  <%= link_to "New Auction", new_auction_path %>
+  <%= flash[:notice] || flash[:alert] %>
+  <hr>
+  <%= yield %>
+</div>
 
 </body>
 </html>

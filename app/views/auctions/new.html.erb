@@ -1,0 +1,24 @@
+<h1>Auction New</h1>
+
+<%= form_for @auction do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <br>
+  <div class="form-group">
+    <%= f.label :details %>
+    <%= f.text_area :details, class: "form-control" %>
+  </div>
+  <br>
+  <div class="form-group">
+    <%= f.label :ends_on %>
+    <%= f.datetime_select :ends_on, class: "form-control" %>
+  </div>
+  <br>
+    <div class="form-group">
+    <%= f.label :reserve_price %>
+    <%= f.number_field :reserve_price, class: "form-control" %>
+  </div>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

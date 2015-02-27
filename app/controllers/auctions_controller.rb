@@ -1,5 +1,9 @@
 class AuctionsController < ApplicationController
 
+  def index
+    @auctions = Auction.all
+  end
+
   def new
     @auction = Auction.new
   end

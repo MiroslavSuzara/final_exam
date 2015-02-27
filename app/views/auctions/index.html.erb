@@ -1,0 +1,27 @@
+<h1>Auction Index</h1>
+
+<h1>Auctions</h1>
+  <table class="table table-hover">
+    <tr>    
+      <th>Title</th>
+      <th>Details</th>
+      <th>Ends On</th>      
+      <th>Reserve Price</th>
+      <th class="actions">Actions</th>
+    </tr>
+    <% @auctions.each do |t| %>
+    <tr>
+      <td><%= link_to t.title, auction_path(t) %></td>
+      <td><%= t.details %></td>
+      <td><%= t.ends_on %></td>
+      <td><%= t.reserve_price %></td>
+      <td class="actions">
+          <div class="btn-group">
+            <%= link_to "Edit", edit_auction_path(t), class: "btn btn-default" %> 
+            <%= link_to "Delete", auction_path(t), method: :delete, data:{confirm: "Are you sure you want to delete this request?"}, class: "btn btn-default" %> 
+          </div>
+        </td>
+    </tr>
+    <% end %>
+  </table>
+  <hr>
