@@ -20,6 +20,6 @@
 
 <% @bids.each do |bid| %>
   <div class="well">
-    <p><%= bid.bid %></p>
+    <p>$<%= bid.bid %> at <%= bid.created_at %></p>
   </div>
 <% end %>
