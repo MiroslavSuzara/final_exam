@@ -20,6 +20,7 @@ class AuctionsController < ApplicationController
   def show
     @auction = Auction.find params[:id]
     @bid = Bid.new
+    @bids = @auction.bids.all
   end
 
   def edit

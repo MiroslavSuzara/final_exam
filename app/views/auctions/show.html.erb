@@ -13,3 +13,13 @@
   </div>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
+
+<hr>
+
+<h2>Previous Bids</h2>
+
+<% @bids.each do |bid| %>
+  <div class="well">
+    <p><%= bid.bid %></p>
+  </div>
+<% end %>

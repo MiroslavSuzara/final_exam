@@ -11,8 +11,9 @@
   <%= link_to "All Auctions", auctions_path %>
   |
   <%= link_to "New Auction", new_auction_path %>
-  <%= flash[:notice] || flash[:alert] %>
   <hr>
+  <p><%= flash[:notice] || flash[:alert] %></p>
+
   <%= yield %>
 </div>
 
