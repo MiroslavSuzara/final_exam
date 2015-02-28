@@ -21,6 +21,17 @@ class AuctionsController < ApplicationController
     @auction = Auction.find params[:id]
     @bid = Bid.new
     @bids = @auction.bids.all.order("created_at DESC")
+        @current_price = @auction.try(:bids).maximum(:bid)
+        @current_price = @current_price + 1 if @current_price
+        if @current_price && @current_price >= @auction.reserve_price
+            @reserve_met = "Reserve Has Been Met"
+        else
+            @reserve_met = "Reserve Has Not Been Met"
+        end
+    end
+    # if @auction.bids.count != 0
+    #   @current_price = @auction.bids.maximum("bid") + 1
+    # end
   end
 
   def edit
@@ -43,4 +54,3 @@ class AuctionsController < ApplicationController
     redirect_to auctions_path
   end
 
-end
