@@ -13,7 +13,7 @@ class BidsController < ApplicationController
       redirect_to @auction, notice: "Bid created."
     else
       flash[:alert] = "Your bid was not created."
-      render '/auctions/show'
+      redirect_to @auction
     end
   end
 end
