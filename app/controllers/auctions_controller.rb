@@ -11,7 +11,7 @@ class AuctionsController < ApplicationController
 
   def create
     @auction = Auction.new params.require(:auction).permit(:title, :details, :ends_on, :reserve_price)
-    @reflection.user = current_user     
+    @auction.user = current_user     
 
     if @auction.save
       redirect_to @auction, notice: "Auction created."

@@ -5,4 +5,8 @@ class Auction < ActiveRecord::Base
 
   belongs_to :user
 
+  def user_first_name
+    user.first_name if user
+  end
+
 end

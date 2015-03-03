@@ -8,6 +8,8 @@ class BidsController < ApplicationController
     @auction = Auction.find params[:auction_id]
     @bid = Bid.new params.require(:bid).permit(:bid) 
     @bid.auction = @auction
+    @bid.user = current_user     
+
     if @bid.bid.to_f >= bid_price(@auction)
       @bid.save 
       redirect_to @auction, notice: "Bid created."

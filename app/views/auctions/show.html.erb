@@ -8,6 +8,7 @@
   </div>
 
   <div class="col-md-4">
+    <p>Created by: <%= @auction.user_first_name %></p>
     <p><strong>Current Price: </strong><%= @current_price %></p>
     <%= @reserve_met %></p>
   </div>
@@ -29,6 +30,6 @@
 
 <% @bids.each do |bid| %>
   <div class="well">
-    <p>$<%= bid.bid %> on <%= formatted_date(bid.created_at) %></p>
+    <p>$<%= bid.bid %> on <%= formatted_date(bid.created_at) %> by <%= bid.user_first_name %></p>
   </div>
 <% end %>
